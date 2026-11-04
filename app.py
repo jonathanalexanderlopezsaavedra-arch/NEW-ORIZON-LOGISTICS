@@ -942,6 +942,26 @@ Mensaje:
         )
 
     return redirect(url_for("inicio") + "#contacto")
+@app.route("/sitemap.xml")
+def sitemap():
+    contenido = """<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
+            <loc>https://new-orizon-logistics.onrender.com/</loc>
+        </url>
+    </urlset>"""
+
+    return app.response_class(contenido, mimetype="application/xml")
+
+
+@app.route("/robots.txt")
+def robots():
+    contenido = """User-agent: *
+Allow: /
+
+Sitemap: https://new-orizon-logistics.onrender.com/sitemap.xml"""
+
+    return app.response_class(contenido, mimetype="text/plain")
 
 
 if __name__ == "__main__":
