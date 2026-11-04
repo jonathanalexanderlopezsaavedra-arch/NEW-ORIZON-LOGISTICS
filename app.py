@@ -627,7 +627,7 @@ def inicio():
                     </div>
                 </div>
 
-                <!-- SERVICIO 5: TRANSPORTE LOCAL -->
+                <!-- SERVICIO 5: Transporte Terrestre -->
 
                 <div class="tarjeta">
                     <img
@@ -636,7 +636,7 @@ def inicio():
                     >
 
                     <div class="tarjeta-contenido">
-                        <h3>Transporte local</h3>
+                        <h3>Transporte terrestre</h3>
 
                         <p>
                             Gestionamos el traslado de mercancías desde
