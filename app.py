@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template_string, request, redirect, url_for, flash
 from email.message import EmailMessage
 from pathlib import Path
@@ -6,7 +5,7 @@ import smtplib
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY")
+app.secret_key = os.environ.get("SECRET_KEY", "clave-temporal-desarrollo")
 
 # RUTAS DEL PROYECTO
 BASE_DIR = Path(__file__).resolve().parent
@@ -21,9 +20,12 @@ def inicio():
     <html lang="es">
     <head>
         <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="_nflRzVJg-8Be9vrd76cF4XgiQyeoAG71vheiwRZ8HY" />
-<title>NEW ORIZON LOGISTICS S.A.C.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="_nflRzVJg-8Be9vrd76cF4XgiQyeoAG71vheiwRZ8HY">
+
+        <title>NEW ORIZON LOGISTICS S.A.C.</title>
+
+        <meta name="description" content="NEW ORIZON LOGISTICS S.A.C. ofrece soluciones logísticas integrales para operaciones de comercio internacional.">
 
         <style>
             * {
@@ -72,37 +74,41 @@ def inicio():
                 text-decoration: none;
                 font-size: 14px;
                 font-weight: bold;
+                transition: color 0.3s ease;
             }
 
             nav a:hover {
                 color: #87A4BA;
             }
 
-            .imagen-portada {
-                display: block;
-                width: 100%;
-                height: auto;
-            }
+            /* PORTADA */
 
             .portada {
                 background: #EAF4F8;
-                padding: 65px 8%;
+                padding: 75px 8%;
                 text-align: center;
+            }
+
+            .portada-contenido {
+                max-width: 900px;
+                margin: auto;
             }
 
             .portada h1 {
                 font-size: 42px;
                 margin-bottom: 20px;
+                color: #024D64;
             }
 
             .portada p {
                 font-size: 19px;
-                line-height: 1.6;
+                line-height: 1.7;
                 max-width: 700px;
                 margin: auto;
+                color: #444444;
             }
 
-            .boton {
+            .boton-principal {
                 display: inline-block;
                 margin-top: 25px;
                 background: #A61731;
@@ -111,25 +117,99 @@ def inicio():
                 text-decoration: none;
                 border-radius: 5px;
                 font-weight: bold;
+                transition: background 0.3s ease;
             }
 
-            .boton:hover {
+            .boton-principal:hover {
                 background: #C52B45;
             }
 
-            section {
+            /* SECCIONES GENERALES */
+
+            .seccion {
                 padding: 70px 8%;
                 text-align: center;
             }
 
-            section h2 {
+            .seccion h2 {
                 font-size: 32px;
                 margin-bottom: 20px;
                 color: #024D64;
             }
 
-            section p {
+            .seccion p {
                 line-height: 1.7;
+            }
+
+            /* NOSOTROS */
+
+            .nosotros-intro {
+                max-width: 850px;
+                margin: 0 auto 35px;
+                color: #555555;
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            .nosotros-tarjetas {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                max-width: 1050px;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            .nosotros-tarjeta {
+                background: #EAF4F8;
+                border-top: 5px solid #024D64;
+                border-radius: 9px;
+                padding: 28px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            }
+
+            .nosotros-tarjeta h3 {
+                color: #A61731;
+                font-size: 23px;
+                margin-bottom: 14px;
+            }
+
+            .nosotros-tarjeta p {
+                color: #444444;
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .valores {
+                max-width: 1050px;
+                margin: 25px auto 0;
+                background: #FFFFFF;
+                border-top: 5px solid #A61731;
+                border-radius: 9px;
+                padding: 28px;
+                text-align: left;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            }
+
+            .valores h3 {
+                color: #A61731;
+                font-size: 23px;
+                margin-bottom: 18px;
+            }            .valores-lista {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px 25px;
+                margin-top: 18px;
+            }
+
+            .valor {
+                color: #444444;
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .valor strong {
+                color: #024D64;
             }
 
             /* SERVICIOS */
@@ -138,7 +218,7 @@ def inicio():
                 background: #EAF4F8;
             }
 
-            .descripcion-servicios {
+            .seccion-descripcion {
                 max-width: 850px;
                 margin: 0 auto 35px;
                 color: #444444;
@@ -146,29 +226,16 @@ def inicio():
                 line-height: 1.8;
             }
 
-            .tarjetas {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 25px;
-    max-width: 1200px;
-    margin: 35px auto 0;
-}
+            .servicios-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 25px;
+                max-width: 1200px;
+                margin: 35px auto 0;
+            }
 
-.tarjeta:nth-child(1),
-.tarjeta:nth-child(2),
-.tarjeta:nth-child(3) {
-    grid-column: span 2;
-}
-
-.tarjeta:nth-child(4) {
-    grid-column: 2 / span 2;
-}
-
-.tarjeta:nth-child(5) {
-    grid-column: 4 / span 2;
-}
-
-            .tarjeta {
+            .servicio {
+                grid-column: span 2;
                 background: #FFFFFF;
                 border-radius: 10px;
                 overflow: hidden;
@@ -178,73 +245,83 @@ def inicio():
                             box-shadow 0.3s ease;
             }
 
-            .tarjeta:hover {
+            .servicio:nth-child(4) {
+                grid-column: 2 / span 2;
+            }
+
+            .servicio:nth-child(5) {
+                grid-column: 4 / span 2;
+            }
+
+            .servicio:hover {
                 transform: translateY(-6px);
                 box-shadow: 0 9px 24px rgba(0,0,0,0.15);
             }
 
-            .tarjeta img {
+            .servicio img {
                 width: 100%;
                 height: 220px;
                 object-fit: cover;
                 display: block;
             }
 
-            .tarjeta-contenido {
-                padding: 24px;
-            }
-
-            .tarjeta h3 {
-                margin-bottom: 14px;
+            .servicio h3 {
+                margin: 20px 20px 12px;
                 color: #A61731;
                 font-size: 21px;
                 line-height: 1.4;
             }
 
-            .tarjeta p {
+            .servicio p {
+                padding: 0 20px 24px;
                 color: #555555;
                 font-size: 15px;
                 line-height: 1.7;
             }
 
+            /* BOLSA DE TRABAJO */
+
+            .bolsa {
+                background: #FFFFFF;
+            }
+
+            .bolsa p {
+                max-width: 800px;
+                margin: 0 auto 15px;
+                color: #555555;
+                font-size: 16px;
+            }
+
             /* CONTACTO */
 
-            .contacto-titulo {
+            .contacto {
                 background: #EAF4F8;
-                padding: 55px 8% 35px;
-                text-align: center;
             }
 
-            .contacto-titulo h2 {
-                color: #024D64;
-                font-size: 34px;
-                margin-bottom: 12px;
+            .contacto h2 {
+                margin-bottom: 35px;
             }
 
-            .contacto-titulo p {
-                color: #555555;
-                line-height: 1.6;
+            .footer-columnas {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                max-width: 1300px;
+                margin: auto;
+                text-align: left;
             }
 
-            footer {
+            .footer-columna {
                 background: #024D64;
                 color: #FFFFFF;
-                padding: 55px 7% 0;
-            }
-
-            .footer-contenido {
-                display: grid;
-                grid-template-columns: 1.2fr 1fr 1.2fr;
-                gap: 40px;
-                max-width: 1400px;
-                margin: auto;
-                padding-bottom: 45px;
+                padding: 25px;
+                border-radius: 9px;
             }
 
             .footer-columna h3 {
                 color: #FFFFFF;
                 font-size: 21px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
                 padding-bottom: 12px;
                 border-bottom: 2px solid #A61731;
             }
@@ -259,6 +336,7 @@ def inicio():
             .footer-columna a {
                 color: #FFFFFF;
                 text-decoration: none;
+                overflow-wrap: anywhere;
             }
 
             .footer-columna a:hover {
@@ -267,14 +345,34 @@ def inicio():
 
             /* FORMULARIO */
 
-            .formulario {
+            .contacto-formulario {
                 display: flex;
                 flex-direction: column;
                 gap: 13px;
+                max-width: 750px;
+                margin: 35px auto 0;
+                padding: 30px;
+                background: #FFFFFF;
+                border-radius: 10px;
+                text-align: left;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             }
 
-            .formulario input,
-            .formulario textarea {
+            .contacto-formulario h3 {
+                color: #024D64;
+                font-size: 23px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .contacto-formulario label {
+                color: #024D64;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .contacto-formulario input,
+            .contacto-formulario textarea {
                 width: 100%;
                 padding: 13px;
                 border: 1px solid #D5E1E5;
@@ -284,17 +382,17 @@ def inicio():
                 outline: none;
             }
 
-            .formulario input:focus,
-            .formulario textarea:focus {
+            .contacto-formulario input:focus,
+            .contacto-formulario textarea:focus {
                 border-color: #A61731;
             }
 
-            .formulario textarea {
+            .contacto-formulario textarea {
                 min-height: 110px;
                 resize: vertical;
             }
 
-            .formulario button {
+            .contacto-formulario button {
                 background: #A61731;
                 color: #FFFFFF;
                 border: none;
@@ -305,16 +403,19 @@ def inicio():
                 cursor: pointer;
             }
 
-            .formulario button:hover {
+            .contacto-formulario button:hover {
                 background: #C52B45;
             }
+
+                        /* MENSAJES */
 
             .mensaje {
                 background: #FFFFFF;
                 color: #024D64;
                 padding: 12px;
                 border-radius: 5px;
-                margin-bottom: 15px;
+                margin: 15px auto;
+                max-width: 750px;
                 font-size: 14px;
                 line-height: 1.5;
             }
@@ -323,645 +424,592 @@ def inicio():
 
             .redes {
                 display: flex;
-                gap: 12px;
+                gap: 15px;
                 flex-wrap: wrap;
-                margin-top: 20px;
+                margin-top: 12px;
             }
 
             .redes a {
-                background: #FFFFFF;
-                color: #024D64;
-                padding: 10px 13px;
-                border-radius: 5px;
-                font-size: 13px;
+                color: #FFFFFF;
+                text-decoration: none;
                 font-weight: bold;
             }
 
             .redes a:hover {
-                background: #A61731;
-                color: #FFFFFF;
+                color: #87A4BA;
             }
 
             /* MAPA */
 
             .mapa {
                 width: 100%;
-                height: 290px;
+                height: 220px;
                 border: 0;
-                border-radius: 7px;
-                margin-bottom: 15px;
+                border-radius: 8px;
+                margin-top: 15px;
             }
 
             .boton-mapa {
                 display: inline-block;
                 background: #A61731;
-                padding: 11px 17px;
+                color: #FFFFFF;
+                padding: 10px 18px;
                 border-radius: 5px;
+                text-decoration: none;
+                margin-top: 12px;
                 font-weight: bold;
-                font-size: 13px;
+            }
+
+            .boton-mapa:hover {
+                background: #C52B45;
             }
 
             /* WHATSAPP */
 
             .whatsapp {
                 position: fixed;
-                bottom: 22px;
-                right: 22px;
+                right: 20px;
+                bottom: 20px;
                 width: 58px;
                 height: 58px;
-                border-radius: 50%;
                 background: #25D366;
-                color: #FFFFFF;
+                border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                text-decoration: none;
-                font-size: 29px;
-                font-weight: bold;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-                z-index: 1000;
+                z-index: 999;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+                transition: transform 0.3s ease;
             }
 
             .whatsapp:hover {
-                transform: scale(1.08);
+                transform: scale(1.1);
             }
 
-            /* DERECHOS */
+            .whatsapp svg {
+                width: 32px;
+                height: 32px;
+                fill: #FFFFFF;
+            }
+
+            /* PIE DE PÁGINA */
 
             .footer-final {
-                border-top: 1px solid rgba(255,255,255,0.25);
-                padding: 22px 10px;
+                background: #013747;
+                color: #FFFFFF;
                 text-align: center;
-            }
-
-            .footer-final p {
+                padding: 20px;
                 font-size: 13px;
-                color: #EAF4F8;
-                line-height: 1.8;
             }
 
-            /* TABLETS */
+            /* DISEÑO PARA TABLETS Y CELULARES */
 
-            @media (max-width: 950px) {
-    .tarjetas {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            @media (max-width: 900px) {
+                .footer-columnas {
+                    grid-template-columns: 1fr 1fr;
+                }
 
-    .tarjeta:nth-child(1),
-    .tarjeta:nth-child(2),
-    .tarjeta:nth-child(3),
-    .tarjeta:nth-child(4),
-    .tarjeta:nth-child(5) {
-        grid-column: auto;
-    }
+                .footer-columna:last-child {
+                    grid-column: 1 / -1;
+                }
+            }
 
-    .footer-contenido {
-        grid-template-columns: 1fr 1fr;
-    }
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    padding: 15px;
+                }
 
-    .footer-columna:first-child {
-        grid-column: 1 / -1;
-    }
-}
+                .logo-imagen {
+                    max-width: 180px;
+                }
 
-            /* CELULARES */
+                nav {
+                    justify-content: center;
+                    gap: 12px;
+                }
 
-@media (max-width: 700px) {
-    header {
-        justify-content: center;
-    }
+                nav a {
+                    font-size: 13px;
+                }
 
-    nav {
-        justify-content: center;
-        gap: 13px;
-    }
+                .portada {
+                    padding: 45px 18px;
+                }
 
-    nav a {
-        font-size: 12px;
-    }
+                .portada h1 {
+                    font-size: 30px;
+                }
 
-    .portada h1 {
-        font-size: 30px;
-    }
+                .portada p {
+                    font-size: 16px;
+                }
 
-    .logo-imagen {
-        max-width: 180px;
-    }
+                .seccion {
+                    padding: 45px 18px;
+                }
 
-    .tarjetas {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
+                .seccion h2 {
+                    font-size: 27px;
+                }
 
-    .tarjeta:nth-child(1),
-    .tarjeta:nth-child(2),
-    .tarjeta:nth-child(3),
-    .tarjeta:nth-child(4),
-    .tarjeta:nth-child(5) {
-        grid-column: auto;
-    }
+                .nosotros-tarjetas {
+                    grid-template-columns: 1fr;
+                }
 
-    .tarjeta img {
-        height: 210px;
-    }
+                .valores-lista {
+                    grid-template-columns: 1fr;
+                }
 
-    .footer-contenido {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
+                .servicios-grid {
+                    grid-template-columns: 1fr;
+                }
 
-    .footer-columna:first-child {
-        grid-column: auto;
-    }
+                .servicio,
+                .servicio:nth-child(4),
+                .servicio:nth-child(5) {
+                    grid-column: auto;
+                }
 
-    .contacto-titulo h2 {
-        font-size: 28px;
-    }
-}
+                .footer-columnas {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-columna:last-child {
+                    grid-column: auto;
+                }
+
+                .contacto-formulario {
+                    padding: 20px;
+                }
+
+                .whatsapp {
+                    width: 54px;
+                    height: 54px;
+                    right: 15px;
+                    bottom: 15px;
+                }
+            }
+
+            @media (max-width: 400px) {
+                .portada h1 {
+                    font-size: 25px;
+                }
+
+                nav {
+                    gap: 10px;
+                }
+
+                nav a {
+                    font-size: 12px;
+                }
+            }
+
         </style>
     </head>
 
-    <body>
-
-        <!-- ENCABEZADO -->
+        <body>
 
         <header>
-            <img
-                class="logo-imagen"
-                src="{{ url_for('static', filename='images/NEW_ORIZON_logo_recortado_fondo_negro.png') }}"
-                alt="NEW ORIZON LOGISTICS S.A.C."
-            >
+            <a href="#inicio">
+                <img
+                    src="{{ url_for('static', filename='images/NEW_ORIZON_logo_recortado_fondo_negro.png') }}"
+                    alt="NEW ORIZON LOGISTICS S.A.C."
+                    class="logo-imagen"
+                >
+            </a>
 
-            <nav>@
+            <nav>
                 <a href="#inicio">Inicio</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#servicios">Servicios</a>
-                <a href="#trabajo">Bolsa de trabajo</a>
+                <a href="#bolsa">Bolsa de trabajo</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </header>
 
-        <!-- PORTADA -->
+        <main>
 
-        <img
-            class="imagen-portada"
-            src="{{ url_for('static', filename='images/portada.jpeg') }}"
-            alt="Portada de NEW ORIZON LOGISTICS S.A.C."
-        >
+            <!-- PORTADA -->
 
-        <div class="portada" id="inicio">
-            <h1>Conectamos el mundo con soluciones logísticas</h1>
+            <img
+                src="{{ url_for('static', filename='images/portada.jpeg') }}"
+                alt="NEW ORIZON LOGISTICS"
+                style="width:100%; height:auto; display:block;"
+            >
 
+            <section class="portada" id="inicio">
+
+                <div class="portada-contenido">
+
+                    <h1>NEW ORIZON LOGISTICS S.A.C.</h1>
+
+                    <p>
+                        Conectamos negocios con oportunidades en los mercados internacionales.
+                    </p>
+
+                    <a href="#servicios" class="boton-principal">
+                        Conoce nuestros servicios
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- NOSOTROS -->
+
+            
+<section class="seccion" id="nosotros">
+
+    <h2>NOSOTROS</h2>
+
+    <p class="nosotros-intro">
+        Somos una empresa comprometida con brindar soluciones logísticas
+        integrales para facilitar las operaciones de comercio internacional.
+    </p>
+
+    <div class="nosotros-tarjetas">
+
+        <div class="nosotros-tarjeta">
+            <h3>Nuestra misión</h3>
             <p>
-                Soluciones de transporte y logística para conectar
-                negocios con nuevas oportunidades.
+                Brindar soluciones logísticas integrales que faciliten las
+                operaciones de comercio internacional de nuestros clientes,
+                ofreciendo atención personalizada, coordinación eficiente y
+                compromiso en cada etapa del proceso.
             </p>
-
-            <a href="#servicios" class="boton">
-                Conoce nuestros servicios
-            </a>
         </div>
 
-        <!-- NOSOTROS -->
-
-        <section id="nosotros">
-            <h2>Sobre nosotros</h2>
-
+        <div class="nosotros-tarjeta">
+            <h3>Nuestra visión</h3>
             <p>
-                Bienvenidos a NEW ORIZON LOGISTICS S.A.C.
-                Estamos preparando una nueva forma de conectar
-                personas, empresas y destinos.
+                Consolidarnos como una empresa logística reconocida por su
+                confiabilidad, calidad de servicio y capacidad de conectar
+                negocios con oportunidades en los mercados internacionales.
             </p>
-        </section>
+        </div>
 
-        <!-- SERVICIOS -->
+    </div>
 
-        <section class="servicios" id="servicios">
-            <h2>Nuestros servicios</h2>
+    <div class="valores">
 
-            <p class="descripcion-servicios">
-                Ofrecemos soluciones logísticas integrales para
-                acompañar tus operaciones de comercio internacional,
-                desde el origen hasta el destino de tu mercancía.
-            </p>
+        <h3>Nuestros valores</h3>
 
-            <div class="tarjetas">
+        <div class="valores-lista">
 
-                <!-- SERVICIO 1: MARITIMO -->
+            <div class="valor">
+                <strong>Compromiso</strong>
+                <p>Nos involucramos en cada operación.</p>
+            </div>
 
-                <div class="tarjeta">
-                    <img
-                        src="{{ url_for('static', filename='images/maritimo.jpeg') }}"
-                        alt="Transporte marítimo de mercancías"
-                    >
+            <div class="valor">
+                <strong>Responsabilidad</strong>
+                <p>Gestionamos cada servicio con seriedad y dedicación.</p>
+            </div>
 
-                    <div class="tarjeta-contenido">
+            <div class="valor">
+                <strong>Transparencia</strong>
+                <p>Mantenemos una comunicación clara y oportuna.</p>
+            </div>
+
+            <div class="valor">
+                <strong>Confianza</strong>
+                <p>Construimos relaciones duraderas con nuestros clientes.</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+                        <!-- SERVICIOS -->
+
+            <section class="seccion servicios" id="servicios">
+
+                <h2>NUESTROS SERVICIOS</h2>
+
+                <p class="seccion-descripcion">
+                    Brindamos soluciones logísticas para acompañar tus operaciones
+                    de comercio internacional.
+                </p>
+
+                <div class="servicios-grid">
+
+                    <div class="servicio">
+                        <img src="{{ url_for('static', filename='images/maritimo.jpeg') }}"
+                             alt="Flete Internacional Marítimo">
+
                         <h3>Flete Internacional Marítimo – LCL / FCL</h3>
 
                         <p>
-                            Coordinamos el transporte marítimo de carga
-                            consolidada y contenedores completos,
-                            ofreciendo alternativas logísticas adaptadas
-                            al volumen, origen y destino de cada operación.
+                            Coordinamos el transporte marítimo de carga consolidada y
+                            contenedores completos, ofreciendo alternativas logísticas
+                            adaptadas al volumen, origen y destino de cada operación.
                         </p>
                     </div>
-                </div>
 
-                <!-- SERVICIO 2: AEREO -->
+                    <div class="servicio">
+                        <img src="{{ url_for('static', filename='images/aereo.jpeg') }}"
+                             alt="Flete Internacional Aéreo">
 
-                <div class="tarjeta">
-                    <img
-                        src="{{ url_for('static', filename='images/aereo.jpeg') }}"
-                        alt="Transporte aéreo internacional"
-                    >
-
-                    <div class="tarjeta-contenido">
                         <h3>Flete Internacional Aéreo</h3>
 
                         <p>
-                            Gestionamos soluciones de transporte aéreo
-                            internacional para mercancías que requieren
-                            agilidad, planificación y coordinación
-                            eficiente en cada etapa del envío.
+                            Gestionamos soluciones de transporte aéreo internacional
+                            para mercancías que requieren agilidad, planificación y
+                            coordinación eficiente en cada etapa del envío.
                         </p>
                     </div>
-                </div>
 
-                <!-- SERVICIO 3: ADUANAS -->
+                    <div class="servicio">
+                        <img src="{{ url_for('static', filename='images/aduanas.jpeg') }}"
+                             alt="Agenciamiento de Aduanas">
 
-                <div class="tarjeta">
-                    <img
-                        src="{{ url_for('static', filename='images/aduanas.jpeg') }}"
-                        alt="Agenciamiento de aduanas"
-                    >
-
-                    <div class="tarjeta-contenido">
                         <h3>Agenciamiento de Aduanas</h3>
 
                         <p>
-                            Coordinamos los procesos de despacho aduanero
-                            y la gestión documentaria necesaria para
-                            facilitar las operaciones de importación y
-                            exportación, en coordinación con agentes
+                            Coordinamos los procesos de despacho aduanero y la gestión
+                            documentaria necesaria para facilitar las operaciones de
+                            importación y exportación, en coordinación con agentes
                             especializados.
                         </p>
                     </div>
-                </div>
 
-                <!-- SERVICIO 4: SEGURO -->
+                    <div class="servicio">
+                        <img src="{{ url_for('static', filename='images/seguro.jpeg') }}"
+                             alt="Seguro Internacional de Carga">
 
-                <div class="tarjeta">
-                    <img
-                        src="{{ url_for('static', filename='images/seguro.jpeg') }}"
-                        alt="Seguro internacional de carga"
-                    >
-
-                    <div class="tarjeta-contenido">
                         <h3>Seguro Internacional de Carga</h3>
 
                         <p>
-                            Coordinamos alternativas de seguro para
-                            brindar protección a tu mercancía durante
-                            el transporte internacional, de acuerdo
-                            con las condiciones y coberturas disponibles.
+                            Coordinamos alternativas de seguro para brindar protección
+                            a tu mercancía durante el transporte internacional, de
+                            acuerdo con las condiciones y coberturas disponibles.
                         </p>
                     </div>
-                </div>
 
-                <!-- SERVICIO 5: Transporte Terrestre -->
+                    <div class="servicio">
+                        <img src="{{ url_for('static', filename='images/terrestre.jpeg') }}"
+                             alt="Transporte Terrestre">
 
-                <div class="tarjeta">
-                    <img
-                        src="{{ url_for('static', filename='images/terrestre.jpeg') }}"
-                        alt="Transporte local de mercancías"
-                    >
-
-                    <div class="tarjeta-contenido">
-                        <h3>Transporte terrestre</h3>
+                        <h3>Transporte Terrestre</h3>
 
                         <p>
-                            Gestionamos el traslado de mercancías desde
-                            puertos, terminales y almacenes hasta el
-                            destino indicado, coordinando unidades y
-                            operadores según los requerimientos de
-                            cada carga.
+                            Gestionamos el traslado de mercancías desde puertos,
+                            terminales y almacenes hasta el destino indicado,
+                            coordinando unidades y operadores según los requerimientos
+                            de cada carga.
                         </p>
                     </div>
+
                 </div>
 
-            </div>
-        </section>
+            </section>
 
-        <!-- BOLSA DE TRABAJO -->
+            <!-- BOLSA DE TRABAJO -->
 
-        <section id="trabajo">
-            <h2>Bolsa de trabajo</h2>
+            <section class="seccion bolsa" id="bolsa">
 
-            <p>
-                Próximamente podrás conocer nuestras oportunidades
-                laborales y formar parte de NEW ORIZON LOGISTICS S.A.C.
-            </p>
-        </section>
+                <h2>BOLSA DE TRABAJO</h2>
 
-        <!-- CONTACTO -->
+                <p>
+                    ¿Te gustaría formar parte de nuestro equipo?
+                    En NEW ORIZON LOGISTICS estamos interesados en conocer
+                    personas comprometidas y con ganas de crecer profesionalmente.
+                </p>
 
-        <div class="contacto-titulo" id="contacto">
-            <h2>Estamos aquí para ayudarte</h2>
+                <p>
+                    Envíanos tu información y tu currículum al correo:
+                </p>
 
-            <p>
-                Comunícate con NEW ORIZON LOGISTICS S.A.C.
-                y conoce nuestras soluciones logísticas.
-            </p>
-        </div>
+                <a href="mailto:operaciones@neworizonlogistics.com"
+                   class="boton-principal">
+                    Enviar currículum
+                </a>
 
-        <footer>
+            </section>
 
-            <div class="footer-contenido">
+                        <!-- CONTACTO -->
 
-                <!-- COLUMNA 1: FORMULARIO -->
+            <section class="seccion contacto" id="contacto">
 
-                <div class="footer-columna">
+                <h2>CONTÁCTANOS</h2>
+
+                <div class="footer-columnas">
+
+                    <div class="footer-columna">
+
+                        <h3>Información de contacto</h3>
+
+                        <p>
+                            <strong>Dirección:</strong><br>
+                            Mz. H Lt. 17, Asociación Montecarlo,
+                            San Martín de Porres, Lima, Perú.
+                        </p>
+
+                        <p>
+                            <strong>Teléfono:</strong>
+                            <a href="tel:+51907225733">907 225 733</a>
+                        </p>
+
+                        <p>
+                            <strong>WhatsApp:</strong>
+                            <a href="https://wa.me/51923754292?text=Hola%2C%20deseo%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20sus%20servicios%20log%C3%ADsticos.%20%C2%A1Gracias%21"
+                               target="_blank">
+                                923 754 292
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Correo:</strong>
+                            <a href="mailto:operaciones@neworizonlogistics.com">
+                                operaciones@neworizonlogistics.com
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Horario:</strong><br>
+                            Lunes a viernes: 9:00 a. m. – 6:00 p. m.
+                        </p>
+
+                    </div>
+
+                    <div class="footer-columna">
+
+                        <h3>Encuéntranos</h3>
+
+                        <iframe
+                            class="mapa"
+                            src="https://www.google.com/maps?q=Mz.%20H%20Lt.%2017%20Asociaci%C3%B3n%20Montecarlo%20San%20Mart%C3%ADn%20de%20Porres%20Lima&output=embed"
+                            loading="lazy"
+                            allowfullscreen>
+                        </iframe>
+
+                        <a class="boton-mapa"
+                           href="https://maps.app.goo.gl/4d9h5vwpnNtVtk667"
+                           target="_blank">
+                            Ver ubicación
+                        </a>
+
+                    </div>
+
+                    <div class="footer-columna">
+
+                        <h3>Síguenos</h3>
+
+                        <p>New Orizon Logistics</p>
+
+                        <div class="redes">
+
+                            <a href="https://www.facebook.com/search/top?q=New%20Orizon%20Logistics"
+                               target="_blank">Facebook</a>
+
+                            <a href="https://www.instagram.com/"
+                               target="_blank">Instagram</a>
+
+                            <a href="https://www.tiktok.com/search?q=New%20Orizon%20Logistics"
+                               target="_blank">TikTok</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- FORMULARIO -->
+
+                <form class="contacto-formulario"
+                      action="/enviar-mensaje"
+                      method="POST">
+
                     <h3>Envíanos un mensaje</h3>
 
-                    {% with mensajes = get_flashed_messages() %}
-                        {% for mensaje in mensajes %}
-                            <div class="mensaje">{{ mensaje }}</div>
-                        {% endfor %}
-                    {% endwith %}
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre"
+                           placeholder="Escribe tu nombre" required>
 
-                    <form class="formulario"
-                          action="/enviar-mensaje"
-                          method="POST">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo"
+                           placeholder="ejemplo@correo.com" required>
 
-                        <input
-                            type="text"
-                            name="nombre"
-                            placeholder="Nombres y apellidos"
-                            maxlength="100"
-                            required
-                        >
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono"
+                           placeholder="Tu número de contacto">
 
-                        <input
-                            type="email"
-                            name="correo"
-                            placeholder="Correo electrónico"
-                            maxlength="150"
-                            required
-                        >
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5"
+                              placeholder="Cuéntanos cómo podemos ayudarte"
+                              required></textarea>
 
-                        <input
-                            type="tel"
-                            name="celular"
-                            placeholder="Número de celular"
-                            maxlength="25"
-                            required
-                        >
+                    <button type="submit">Enviar mensaje</button>
 
-                        <input
-                            type="text"
-                            name="empresa"
-                            placeholder="Nombre de empresa"
-                            maxlength="120"
-                        >
+                </form>
 
-                        <input
-                            type="text"
-                            name="cargo"
-                            placeholder="Cargo"
-                            maxlength="100"
-                        >
+            </section>
 
-                        <textarea
-                            name="mensaje"
-                            placeholder="Escribe tu mensaje..."
-                            maxlength="3000"
-                            required
-                        ></textarea>
+        </main>
 
-                        <button type="submit">
-                            ENVIAR MENSAJE
-                        </button>
+        <!-- PIE DE PÁGINA -->
 
-                    </form>
-                </div>
-
-                <!-- COLUMNA 2: EMPRESA -->
-
-                <div class="footer-columna">
-                    <h3>NEW ORIZON LOGISTICS S.A.C.</h3>
-
-                    <p>
-                        <strong>Dirección:</strong><br>
-                        Mz. H Lt. 17, Asociación Montecarlo,
-                        San Martín de Porres, Lima, Perú.
-                    </p>
-
-                    <p>
-                        <strong>Teléfono:</strong><br>
-                        <a href="tel:+51907225733">
-                            907 225 733
-                        </a>
-                    </p>
-
-                    <p>
-                        <strong>WhatsApp:</strong><br>
-                        <a href="https://wa.me/51923754292?text=Hola%2C%20deseo%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20sus%20servicios%20log%C3%ADsticos.%20%C2%A1Gracias%21"
-                           target="_blank">
-                            923 754 292
-                        </a>
-                    </p>
-
-                    <p>
-                        <strong>Correo empresarial:</strong><br>
-                        <a href="mailto:operaciones@neworizonlogistics.com">
-                            operaciones@neworizonlogistics.com
-                        </a>
-                    </p>
-
-                    <p>
-                        <strong>Horario de atención:</strong><br>
-                        Lunes a viernes<br>
-                        9:00 a. m. – 6:00 p. m.
-                    </p>
-
-                    <p>
-                        <strong>Síguenos en nuestras redes:</strong>
-                    </p>
-
-                    <div class="redes">
-                        <a href="https://www.facebook.com/search/top?q=New%20Orizon%20Logistics"
-                           target="_blank">Facebook</a>
-
-                        <a href="https://www.instagram.com/"
-                           target="_blank">Instagram</a>
-
-                        <a href="https://www.tiktok.com/search?q=New%20Orizon%20Logistics"
-                           target="_blank">TikTok</a>
-                    </div>
-                </div>
-
-                <!-- COLUMNA 3: MAPA -->
-
-                <div class="footer-columna">
-                    <h3>Encuéntranos</h3>
-
-                    <p>
-                        Visítanos en nuestras oficinas.
-                        Estamos ubicados en San Martín de Porres, Lima.
-                    </p>
-
-                    <iframe
-                        class="mapa"
-                        src="https://maps.google.com/maps?q=Mz.%20H%20Lt.%2017%20Asociacion%20Montecarlo%20San%20Martin%20de%20Porres%20Lima&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        allowfullscreen>
-                    </iframe>
-
-                    <a
-                        class="boton-mapa"
-                        href="https://maps.app.goo.gl/4d9h5vwpnNtVtk667"
-                        target="_blank">
-                        VER UBICACIÓN EN GOOGLE MAPS
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="footer-final">
-                <p>
-                    NEW ORIZON LOGISTICS S.A.C.
-                </p>
-
-                <p>
-                    © 2026 - Conectamos oportunidades. Coordinamos soluciones.
-                </p>
-            </div>
-
+        <footer class="footer-final">
+            <p>
+                © 2026 NEW ORIZON LOGISTICS S.A.C.
+                Todos los derechos reservados.
+            </p>
         </footer>
 
-        <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+        <!-- BOTÓN WHATSAPP -->
 
-       <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+        <a class="whatsapp"
+           href="https://wa.me/51923754292?text=Hola%2C%20deseo%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20sus%20servicios%20log%C3%ADsticos.%20%C2%A1Gracias%21"
+           target="_blank"
+           aria-label="Contactar por WhatsApp">
 
-<a
-    class="whatsapp"
-    href="https://wa.me/51923754292?text=Hola%2C%20deseo%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20sobre%20sus%20servicios%20log%C3%ADsticos.%20%C2%A1Gracias%21"
-    target="_blank"
-    aria-label="Contactar por WhatsApp">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 .5C7.45.5.5 7.45.5 16c0 2.73.72 5.29 1.98 7.51L.5 31.5l8.2-1.95A15.43 15.43 0 0 0 16 31.5c8.55 0 15.5-6.95 15.5-15.5S24.55.5 16 .5zm0 28.3c-2.35 0-4.65-.63-6.65-1.83l-.48-.29-4.86 1.16 1.2-4.74-.31-.49A12.75 12.75 0 1 1 16 28.8zm7-9.55c-.38-.19-2.24-1.1-2.59-1.23-.35-.13-.6-.19-.85.19-.25.38-.97 1.23-1.19 1.48-.22.25-.44.28-.82.09-.38-.19-1.6-.59-3.05-1.89-1.13-1.01-1.9-2.26-2.12-2.64-.22-.38-.02-.58.17-.77.17-.17.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.05-1.17-2.81-.31-.74-.62-.64-.85-.65h-.73c-.25 0-.66.09-1.01.47-.35.38-1.32 1.29-1.32 3.15s1.35 3.65 1.54 3.9c.19.25 2.66 4.06 6.45 5.69.9.39 1.6.62 2.15.79.9.29 1.72.25 2.37.15.72-.11 2.24-.91 2.56-1.79.32-.88.32-1.63.22-1.79-.09-.16-.34-.25-.72-.44z"/>
+            </svg>
 
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 32 32"
-        width="34"
-        height="34"
-        fill="white">
-
-        <path d="M16 2.5a13.4 13.4 0 0 0-11.5 20.3L2.7 30l7.4-1.9A13.5 13.5 0 1 0 16 2.5zm0 24.5c-2.2 0-4.3-.6-6.1-1.8l-.4-.2-4.4 1.2 1.2-4.3-.3-.5A11 11 0 1 1 16 27z"/>
-
-        <path d="M22.1 18.7c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.6-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.8 3.3 1.3 3.3.9 3.9.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.6-.4z"/>
-    </svg>
-
-</a>
         </a>
 
-    </body>
-    </html>
     """)
 
 
-@app.route("/enviar-mensaje", methods=["POST"])
-def enviar_mensaje():
+# SITEMAP
 
-    nombre = request.form.get("nombre", "").strip()
-    correo = request.form.get("correo", "").strip()
-    celular = request.form.get("celular", "").strip()
-    empresa = request.form.get("empresa", "").strip()
-    cargo = request.form.get("cargo", "").strip()
-    mensaje = request.form.get("mensaje", "").strip()
-
-    if not nombre or not correo or not celular or not mensaje:
-        flash("Completa todos los campos obligatorios.")
-        return redirect(url_for("inicio") + "#contacto")
-
-    if len(nombre) > 100 or len(correo) > 150 or len(mensaje) > 3000:
-        flash("Uno de los campos supera el límite permitido.")
-        return redirect(url_for("inicio") + "#contacto")
-
-    servidor = os.environ.get("MAIL_SERVER")
-    puerto = int(os.environ.get("MAIL_PORT", "587"))
-    usuario = os.environ.get("MAIL_USERNAME")
-    clave = os.environ.get("MAIL_PASSWORD")
-    usar_tls = os.environ.get("MAIL_USE_TLS", "true").lower() == "true"
-
-    if not servidor or not usuario or not clave:
-        flash(
-            "El formulario está preparado, pero falta configurar "
-            "el servicio de correo. Comunícate directamente con nosotros."
-        )
-        return redirect(url_for("inicio") + "#contacto")
-
-    try:
-        correo_mensaje = EmailMessage()
-
-        correo_mensaje["Subject"] = "Nueva consulta desde NEW ORIZON"
-        correo_mensaje["From"] = usuario
-        correo_mensaje["To"] = "operaciones@neworizonlogistics.com"
-        correo_mensaje["Reply-To"] = correo
-
-        correo_mensaje.set_content(f"""
-NUEVA CONSULTA - NEW ORIZON LOGISTICS S.A.C.
-
-Nombre: {nombre}
-Correo: {correo}
-Celular: {celular}
-Empresa: {empresa}
-Cargo: {cargo}
-
-Mensaje:
-{mensaje}
-""")
-
-        with smtplib.SMTP(servidor, puerto, timeout=20) as smtp:
-            smtp.ehlo()
-
-            if usar_tls:
-                smtp.starttls()
-                smtp.ehlo()
-
-            smtp.login(usuario, clave)
-            smtp.send_message(correo_mensaje)
-
-        flash("¡Mensaje enviado correctamente! Gracias por contactarnos.")
-
-    except Exception:
-        app.logger.exception("Error al enviar el correo de contacto.")
-        flash(
-            "No se pudo enviar el mensaje en este momento. "
-            "Por favor, inténtalo nuevamente o contáctanos por WhatsApp."
-        )
-
-    return redirect(url_for("inicio") + "#contacto")
 @app.route("/sitemap.xml")
 def sitemap():
+
     contenido = """<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         <url>
             <loc>https://new-orizon-logistics.onrender.com/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>1.0</priority>
         </url>
-    </urlset>"""
+    </urlset>
+    """
 
-    return app.response_class(contenido, mimetype="application/xml")
+    return app.response_class(
+        contenido,
+        mimetype="application/xml"
+    )
 
+
+# ROBOTS
 
 @app.route("/robots.txt")
 def robots():
+
     contenido = """User-agent: *
 Allow: /
 
-Sitemap: https://new-orizon-logistics.onrender.com/sitemap.xml"""
+Sitemap: https://new-orizon-logistics.onrender.com/sitemap.xml
+"""
 
-    return app.response_class(contenido, mimetype="text/plain")
+    return app.response_class(
+        contenido,
+        mimetype="text/plain"
+    )
 
 
 if __name__ == "__main__":
