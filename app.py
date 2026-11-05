@@ -23,12 +23,13 @@ def inicio():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="_nflRzVJg-8Be9vrd76cF4XgiQyeoAG71vheiwRZ8HY">
 
-        <title>Tu carga, en buenas manos,<br>de origen a destino.</title>
+        <title>NEW ORIZON LOGISTICS S.A.C. | Agencia de Carga Internacional</title>
 
-        <meta name="description" content="NEW ORIZON LOGISTICS S.A.C. ofrece soluciones logísticas integrales para operaciones de comercio internacional.">
+        <meta name="description" content="NEW ORIZON LOGISTICS S.A.C. ofrece servicios de carga internacional marítima y aérea, agenciamiento de aduanas, seguro de carga y transporte terrestre en Perú.">
 
-        <style>
-            * {
+ 
+\        <style>
+           * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
