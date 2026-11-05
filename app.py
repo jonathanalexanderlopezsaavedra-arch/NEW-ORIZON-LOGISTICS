@@ -27,6 +27,38 @@ def inicio():
 
         <meta name="description" content="NEW ORIZON LOGISTICS S.A.C. ofrece servicios de carga internacional marítima y aérea, agenciamiento de aduanas, seguro de carga y transporte terrestre en Perú.">
 
+        <link rel="canonical" href="https://new-orizon-logistics.onrender.com/">
+
+        <meta property="og:title" content="NEW ORIZON LOGISTICS S.A.C.">
+        <meta property="og:description" content="Soluciones de logística internacional, carga marítima y aérea, aduanas y transporte terrestre en Perú.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://new-orizon-logistics.onrender.com/">
+        <meta property="og:locale" content="es_PE">
+
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "NEW ORIZON LOGISTICS S.A.C.",
+          "url": "https://new-orizon-logistics.onrender.com/",
+          "description": "Servicios de logística internacional, carga marítima y aérea, agenciamiento de aduanas, seguro internacional de carga y transporte terrestre en Perú.",
+          "email": "operaciones@neworizonlogistics.com",
+          "telephone": "+51907225733",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mz. H Lt. 17, Asociación Montecarlo",
+            "addressLocality": "San Martín de Porres",
+            "addressRegion": "Lima",
+            "addressCountry": "PE"
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/1Kx5EYa8iC/",
+            "https://www.instagram.com/neworizonlogistics/"
+          ]
+        }
+        </script>
+
+
  
 \        <style>
            * {
