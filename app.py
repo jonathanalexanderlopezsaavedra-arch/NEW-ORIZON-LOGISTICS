@@ -597,7 +597,7 @@ def inicio():
                     flex-direction: column;
                     align-items: flex-start;
                     justify-content: center;
-                    padding: 28px 23px;
+                    padding: 22px 20px;
                     background: #024D64;
                     text-align: left;
                 }
@@ -608,21 +608,22 @@ def inicio():
                 }
 
                 .portada h1 {
-                    font-size: clamp(24px, 6vw, 29px);
+                    font-size: 24px;
                     line-height: 1.2;
-                    margin-bottom: 12px;
+                    margin-bottom: 9px;
                 }
 
                 .portada p {
-                    font-size: 15px;
-                    line-height: 1.5;
+                    font-size: 14px;
+                    line-height: 1.45;
                 }
 
                 .portada-frase {
                     position: static;
-                    margin-top: 18px;
+                    margin-top: 12px;
                     max-width: 100%;
-                    font-size: 15px;
+                    font-size: 14px;
+                    line-height: 1.4;
                 }
 
                 header {
