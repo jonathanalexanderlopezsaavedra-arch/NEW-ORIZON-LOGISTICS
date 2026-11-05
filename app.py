@@ -23,7 +23,7 @@ def inicio():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="_nflRzVJg-8Be9vrd76cF4XgiQyeoAG71vheiwRZ8HY">
 
-        <title>NEW ORIZON LOGISTICS S.A.C.</title>
+        <title>Tu carga, en buenas manos,<br>de origen a destino.</title>
 
         <meta name="description" content="NEW ORIZON LOGISTICS S.A.C. ofrece soluciones logísticas integrales para operaciones de comercio internacional.">
 
@@ -646,26 +646,23 @@ def inicio():
             inset:0;
             display:flex;
             flex-direction:column;
-            justify-content:space-between;
+            justify-content:center; align-items:center;
             padding:clamp(20px, 3.5vw, 48px) clamp(22px, 6vw, 75px);
             box-sizing:border-box;
             background:transparent;
-            text-align:left;
+            text-align:center;
         ">
 
-        <div class="portada-contenido" style="margin:0; max-width:650px; text-align:left;">
+        <div class="portada-contenido" style="margin:0 auto; max-width:650px; text-align:center;">
 
             <h1 style="color:white; font-size:clamp(25px, 3vw, 38px); line-height:1.15; max-width:620px; margin:0 0 12px 0; text-shadow:0 2px 8px rgba(0,0,0,.4);">
-                NEW ORIZON LOGISTICS S.A.C.
+                Tu carga, en buenas manos,<br>de origen a destino.
             </h1>
 
             <p style="color:white; font-size:clamp(13px, 1.25vw, 17px); line-height:1.5; max-width:520px; margin:0; text-shadow:0 1px 5px rgba(0,0,0,.4);">
-                Conectamos negocios con oportunidades en los mercados internacionales.
+                Seguridad, eficiencia y confianza en cada operación logística.
             </p>
 
-            <a href="#servicios" class="boton-principal" style="margin-top:18px;">
-                Conoce nuestros servicios
-            </a>
 
         </div>
 
