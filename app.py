@@ -632,96 +632,50 @@ def inicio():
 
             <!-- PORTADA -->
 
-            <img
-                src="{{ url_for('static', filename='images/portada.jpeg') }}"
-                alt="NEW ORIZON LOGISTICS"
-                style="width:100%; height:auto; display:block;"
-            >
+<div style="position:relative; width:100%;">
 
-            <section class="portada" id="inicio">
+    <img
+        src="{{ url_for('static', filename='images/portada.jpeg') }}"
+        alt="NEW ORIZON LOGISTICS"
+        style="width:100%; height:auto; display:block;"
+    >
 
-                <div class="portada-contenido">
+    <section class="portada" id="inicio"
+        style="
+            position:absolute;
+            inset:0;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+            padding:5% 7%;
+            box-sizing:border-box;
+            background:transparent;
+            text-align:left;
+        ">
 
-                    <h1>NEW ORIZON LOGISTICS S.A.C.</h1>
+        <div class="portada-contenido" style="margin:0; max-width:900px; text-align:left;">
 
-                    <p>
-                        Conectamos negocios con oportunidades en los mercados internacionales.
-                    </p>
+            <h1 style="color:white;">
+                Tu carga, en buenas manos, de origen a destino.
+            </h1>
 
-                    <a href="#servicios" class="boton-principal">
-                        Conoce nuestros servicios
-                    </a>
+            <p style="color:white; margin:0;">
+                Seguridad, eficiencia y confianza en cada operación logística.
+            </p>
 
-                </div>
+        </div>
 
-            </section>
+        <div style="color:white; font-size:clamp(18px, 2.5vw, 30px); font-weight:bold;">
+            Conectamos oportunidades. Coordinamos soluciones.
+        </div>
+
+    </section>
+
+</div>
 
             <!-- NOSOTROS -->
 
             
-<section class="seccion" id="nosotros">
-
-    <h2>NOSOTROS</h2>
-
-    <p class="nosotros-intro">
-        Somos una empresa comprometida con brindar soluciones logísticas
-        integrales para facilitar las operaciones de comercio internacional.
-    </p>
-
-    <div class="nosotros-tarjetas">
-
-        <div class="nosotros-tarjeta">
-            <h3>Nuestra misión</h3>
-            <p>
-                Brindar soluciones logísticas integrales que faciliten las
-                operaciones de comercio internacional de nuestros clientes,
-                ofreciendo atención personalizada, coordinación eficiente y
-                compromiso en cada etapa del proceso.
-            </p>
-        </div>
-
-        <div class="nosotros-tarjeta">
-            <h3>Nuestra visión</h3>
-            <p>
-                Consolidarnos como una empresa logística reconocida por su
-                confiabilidad, calidad de servicio y capacidad de conectar
-                negocios con oportunidades en los mercados internacionales.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="valores">
-
-        <h3>Nuestros valores</h3>
-
-        <div class="valores-lista">
-
-            <div class="valor">
-                <strong>Compromiso</strong>
-                <p>Nos involucramos en cada operación.</p>
-            </div>
-
-            <div class="valor">
-                <strong>Responsabilidad</strong>
-                <p>Gestionamos cada servicio con seriedad y dedicación.</p>
-            </div>
-
-            <div class="valor">
-                <strong>Transparencia</strong>
-                <p>Mantenemos una comunicación clara y oportuna.</p>
-            </div>
-
-            <div class="valor">
-                <strong>Confianza</strong>
-                <p>Construimos relaciones duraderas con nuestros clientes.</p>
-            </div>
-
-        </div>
-    </div>
-
-</section>
-
                         <!-- SERVICIOS -->
 
             <section class="seccion servicios" id="servicios">
