@@ -656,17 +656,17 @@ def inicio():
         <div class="portada-contenido" style="margin:0; max-width:650px; text-align:left;">
 
             <h1 style="color:white; font-size:clamp(25px, 3vw, 38px); line-height:1.15; max-width:620px; margin:0 0 12px 0; text-shadow:0 2px 8px rgba(0,0,0,.4);">
-                Tu carga, en buenas manos,<br>de origen a destino.
+                NEW ORIZON LOGISTICS S.A.C.
             </h1>
 
             <p style="color:white; font-size:clamp(13px, 1.25vw, 17px); line-height:1.5; max-width:520px; margin:0; text-shadow:0 1px 5px rgba(0,0,0,.4);">
-                Seguridad, eficiencia y confianza en cada operación logística.
+                Conectamos negocios con oportunidades en los mercados internacionales.
             </p>
 
-        </div>
+            <a href="#servicios" class="boton-principal" style="margin-top:18px;">
+                Conoce nuestros servicios
+            </a>
 
-        <div style="color:white; font-size:clamp(14px, 1.7vw, 21px); font-weight:600; max-width:480px; line-height:1.4; text-shadow:0 2px 7px rgba(0,0,0,.45);">
-            Conectamos oportunidades. Coordinamos soluciones.
         </div>
 
     </section>
@@ -675,8 +675,48 @@ def inicio():
 
             <!-- NOSOTROS -->
 
-            
-                        <!-- SERVICIOS -->
+            <section class="seccion nosotros" id="nosotros">
+
+                <h2>CONÓCENOS</h2>
+
+                <div class="nosotros-intro">
+                    <p>
+                        NEW ORIZON LOGISTICS nace de la experiencia en el sector logístico y de la identificación de oportunidades para mejorar la gestión del comercio internacional.
+                    </p>
+
+                    <p>
+                        Impulsada por la confianza de clientes que apostaron por este proyecto, surge con el propósito de brindar soluciones logísticas personalizadas, eficientes y confiables, construyendo relaciones comerciales basadas en el compromiso y la transparencia.
+                    </p>
+                </div>
+
+                <div class="nosotros-tarjetas">
+
+                    <div class="nosotros-tarjeta">
+                        <h3>Nuestra misión</h3>
+                        <p>
+                            Brindar soluciones logísticas integrales que faciliten las operaciones de comercio internacional de nuestros clientes, ofreciendo atención personalizada, coordinación eficiente y compromiso en cada etapa del proceso.
+                        </p>
+                    </div>
+
+                    <div class="nosotros-tarjeta">
+                        <h3>Nuestra visión</h3>
+                        <p>
+                            Consolidarnos como una empresa logística reconocida por su confiabilidad, calidad de servicio y capacidad de conectar negocios con oportunidades en los mercados internacionales.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="valores">
+                    <h3>Nuestros valores</h3>
+                    <p>
+                        Compromiso, confianza, transparencia, responsabilidad y eficiencia en cada operación logística.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- SERVICIOS -->
 
             <section class="seccion servicios" id="servicios">
 
