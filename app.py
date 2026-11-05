@@ -124,6 +124,76 @@ def inicio():
                 background: #C52B45;
             }
 
+
+            /* PORTADA PRINCIPAL ADAPTABLE */
+
+            .portada-fondo {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .portada-imagen {
+                display: block;
+                width: 100%;
+                height: clamp(380px, 42vw, 560px);
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .portada {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 40px clamp(25px, 7vw, 100px);
+                box-sizing: border-box;
+                background: linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.58) 0%,
+                    rgba(0, 0, 0, 0.28) 48%,
+                    rgba(0, 0, 0, 0) 100%
+                );
+                text-align: left;
+            }
+
+            .portada-contenido {
+                width: 58%;
+                max-width: 650px;
+                margin: 0;
+            }
+
+            .portada h1 {
+                color: #FFFFFF;
+                font-size: clamp(27px, 3vw, 39px);
+                line-height: 1.2;
+                margin: 0 0 15px;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+            }
+
+            .portada p {
+                color: #FFFFFF;
+                font-size: clamp(14px, 1.3vw, 17px);
+                line-height: 1.6;
+                max-width: 520px;
+                margin: 0;
+                text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+            }
+
+            .portada-frase {
+                position: absolute;
+                left: clamp(25px, 7vw, 100px);
+                bottom: clamp(22px, 3vw, 42px);
+                max-width: 480px;
+                color: #FFFFFF;
+                font-size: clamp(14px, 1.5vw, 19px);
+                font-weight: 600;
+                line-height: 1.4;
+                text-shadow: 0 2px 7px rgba(0,0,0,0.55);
+            }
+
             /* SECCIONES GENERALES */
 
             .seccion {
@@ -515,6 +585,46 @@ def inicio():
             }
 
             @media (max-width: 768px) {
+                .portada-imagen {
+                    height: 460px;
+                    object-position: center;
+                }
+
+                .portada {
+                    justify-content: center;
+                    padding: 35px 23px 95px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(0, 0, 0, 0.58),
+                        rgba(0, 0, 0, 0.20)
+                    );
+                }
+
+                .portada-contenido {
+                    width: 100%;
+                    max-width: 430px;
+                }
+
+                .portada h1 {
+                    font-size: clamp(25px, 6vw, 30px);
+                    line-height: 1.2;
+                    margin-bottom: 12px;
+                }
+
+                .portada p {
+                    font-size: 15px;
+                    line-height: 1.5;
+                }
+
+                .portada-frase {
+                    left: 23px;
+                    right: 23px;
+                    bottom: 25px;
+                    font-size: 15px;
+                    max-width: 350px;
+                }
+
+
                 header {
                     flex-direction: column;
                     padding: 15px;
@@ -534,15 +644,15 @@ def inicio():
                 }
 
                 .portada {
-                    padding: 45px 18px;
+                    padding: 35px 23px 95px;
                 }
 
                 .portada h1 {
-                    font-size: 30px;
+                    font-size: clamp(25px, 6vw, 30px);
                 }
 
                 .portada p {
-                    font-size: 16px;
+                    font-size: 15px;
                 }
 
                 .seccion {
@@ -632,38 +742,31 @@ def inicio():
 
             <!-- PORTADA -->
 
-<div style="position:relative; width:100%;">
+<div class="portada-fondo">
 
     <img
+        class="portada-imagen"
         src="{{ url_for('static', filename='images/portada.jpeg') }}"
         alt="NEW ORIZON LOGISTICS"
-        style="width:100%; height:auto; display:block;"
     >
 
-    <section class="portada" id="inicio"
-        style="
-            position:absolute;
-            inset:0;
-            display:flex;
-            flex-direction:column;
-            justify-content:center; align-items:center;
-            padding:clamp(20px, 3.5vw, 48px) clamp(22px, 6vw, 75px);
-            box-sizing:border-box;
-            background:transparent;
-            text-align:center;
-        ">
+    <section class="portada" id="inicio">
 
-        <div class="portada-contenido" style="margin:0 auto; max-width:650px; text-align:center;">
+        <div class="portada-contenido">
 
-            <h1 style="color:white; font-size:clamp(25px, 3vw, 38px); line-height:1.15; max-width:620px; margin:0 0 12px 0; text-shadow:0 2px 8px rgba(0,0,0,.4);">
-                Tu carga, en buenas manos,<br>de origen a destino.
+            <h1>
+                Tu carga, en buenas manos,<br>
+                de origen a destino.
             </h1>
 
-            <p style="color:white; font-size:clamp(13px, 1.25vw, 17px); line-height:1.5; max-width:520px; margin:0; text-shadow:0 1px 5px rgba(0,0,0,.4);">
+            <p>
                 Seguridad, eficiencia y confianza en cada operación logística.
             </p>
 
+        </div>
 
+        <div class="portada-frase">
+            Conectamos oportunidades. Coordinamos soluciones.
         </div>
 
     </section>
