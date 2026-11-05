@@ -136,8 +136,8 @@ def inicio():
             .portada-imagen {
                 display: block;
                 width: 100%;
-                height: clamp(380px, 42vw, 560px);
-                object-fit: cover;
+                height: auto;
+                object-fit: contain;
                 object-position: center;
             }
 
@@ -152,9 +152,8 @@ def inicio():
                 box-sizing: border-box;
                 background: linear-gradient(
                     90deg,
-                    rgba(0, 0, 0, 0.58) 0%,
-                    rgba(0, 0, 0, 0.28) 48%,
-                    rgba(0, 0, 0, 0) 100%
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.12)
                 );
                 text-align: left;
             }
@@ -167,17 +166,17 @@ def inicio():
 
             .portada h1 {
                 color: #FFFFFF;
-                font-size: clamp(27px, 3vw, 39px);
+                font-size: clamp(25px, 2.5vw, 34px);
                 line-height: 1.2;
-                margin: 0 0 15px;
-                text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+                margin: 0 0 12px;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.5);
             }
 
             .portada p {
                 color: #FFFFFF;
-                font-size: clamp(14px, 1.3vw, 17px);
-                line-height: 1.6;
-                max-width: 520px;
+                font-size: clamp(13px, 1.1vw, 16px);
+                line-height: 1.5;
+                max-width: 480px;
                 margin: 0;
                 text-shadow: 0 1px 6px rgba(0,0,0,0.5);
             }
@@ -185,10 +184,10 @@ def inicio():
             .portada-frase {
                 position: absolute;
                 left: clamp(25px, 7vw, 100px);
-                bottom: clamp(22px, 3vw, 42px);
-                max-width: 480px;
+                bottom: 25px;
+                max-width: 430px;
                 color: #FFFFFF;
-                font-size: clamp(14px, 1.5vw, 19px);
+                font-size: clamp(13px, 1.3vw, 17px);
                 font-weight: 600;
                 line-height: 1.4;
                 text-shadow: 0 2px 7px rgba(0,0,0,0.55);
@@ -586,18 +585,21 @@ def inicio():
 
             @media (max-width: 768px) {
                 .portada-imagen {
-                    height: 460px;
-                    object-position: center;
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
                 }
 
                 .portada {
+                    position: relative;
+                    inset: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
                     justify-content: center;
-                    padding: 35px 23px 95px;
-                    background: linear-gradient(
-                        90deg,
-                        rgba(0, 0, 0, 0.58),
-                        rgba(0, 0, 0, 0.20)
-                    );
+                    padding: 28px 23px;
+                    background: #024D64;
+                    text-align: left;
                 }
 
                 .portada-contenido {
@@ -606,7 +608,7 @@ def inicio():
                 }
 
                 .portada h1 {
-                    font-size: clamp(25px, 6vw, 30px);
+                    font-size: clamp(24px, 6vw, 29px);
                     line-height: 1.2;
                     margin-bottom: 12px;
                 }
@@ -617,13 +619,11 @@ def inicio():
                 }
 
                 .portada-frase {
-                    left: 23px;
-                    right: 23px;
-                    bottom: 25px;
+                    position: static;
+                    margin-top: 18px;
+                    max-width: 100%;
                     font-size: 15px;
-                    max-width: 350px;
                 }
-
 
                 header {
                     flex-direction: column;
@@ -641,18 +641,6 @@ def inicio():
 
                 nav a {
                     font-size: 13px;
-                }
-
-                .portada {
-                    padding: 35px 23px 95px;
-                }
-
-                .portada h1 {
-                    font-size: clamp(25px, 6vw, 30px);
-                }
-
-                .portada p {
-                    font-size: 15px;
                 }
 
                 .seccion {
