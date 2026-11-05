@@ -138,6 +138,11 @@ def inicio():
                 .portada-fondo {
                     max-height: 48vw;
                 }
+
+                .portada-imagen {
+                    transform: scale(1.02);
+                    transform-origin: center bottom;
+                }
             }
 
             .portada-imagen {
