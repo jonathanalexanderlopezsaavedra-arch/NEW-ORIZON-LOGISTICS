@@ -134,6 +134,12 @@ def inicio():
                 overflow: hidden;
             }
 
+            @media (min-width: 769px) {
+                .portada-fondo {
+                    max-height: 54vw;
+                }
+            }
+
             .portada-imagen {
                 display: block;
                 width: 100%;
