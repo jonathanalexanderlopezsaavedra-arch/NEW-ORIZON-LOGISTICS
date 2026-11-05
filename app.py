@@ -137,9 +137,9 @@ def inicio():
             .portada-imagen {
                 display: block;
                 width: 100%;
-                height: auto;
-                object-fit: contain;
-                object-position: center;
+                height: clamp(380px, 42vw, 560px);
+                object-fit: cover;
+                object-position: center top;
             }
 
             .portada {
@@ -148,26 +148,26 @@ def inicio():
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: flex-start;
-                padding: 40px clamp(25px, 7vw, 100px);
+                align-items: center;
+                padding: 35px 25px;
                 box-sizing: border-box;
                 background: linear-gradient(
                     90deg,
-                    rgba(0, 0, 0, 0.48),
-                    rgba(0, 0, 0, 0.12)
+                    rgba(0, 0, 0, 0.38),
+                    rgba(0, 0, 0, 0.16)
                 );
-                text-align: left;
+                text-align: center;
             }
 
             .portada-contenido {
-                width: 58%;
-                max-width: 650px;
-                margin: 0;
+                width: 90%;
+                max-width: 720px;
+                margin: 0 auto;
             }
 
             .portada h1 {
                 color: #FFFFFF;
-                font-size: clamp(25px, 2.5vw, 34px);
+                font-size: clamp(28px, 3vw, 40px);
                 line-height: 1.2;
                 margin: 0 0 12px;
                 text-shadow: 0 2px 8px rgba(0,0,0,0.5);
@@ -175,22 +175,25 @@ def inicio():
 
             .portada p {
                 color: #FFFFFF;
-                font-size: clamp(13px, 1.1vw, 16px);
+                font-size: clamp(14px, 1.2vw, 17px);
                 line-height: 1.5;
-                max-width: 480px;
-                margin: 0;
+                max-width: 550px;
+                margin: 0 auto;
                 text-shadow: 0 1px 6px rgba(0,0,0,0.5);
             }
 
             .portada-frase {
                 position: absolute;
-                left: clamp(25px, 7vw, 100px);
-                bottom: 25px;
-                max-width: 430px;
+                left: 50%;
+                bottom: 18px;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 550px;
                 color: #FFFFFF;
                 font-size: clamp(13px, 1.3vw, 17px);
                 font-weight: 600;
                 line-height: 1.4;
+                text-align: center;
                 text-shadow: 0 2px 7px rgba(0,0,0,0.55);
             }
 
@@ -586,45 +589,58 @@ def inicio():
 
             @media (max-width: 768px) {
                 .portada-imagen {
+                    display: block;
                     width: 100%;
-                    height: auto;
-                    object-fit: contain;
+                    height: 390px;
+                    object-fit: cover;
+                    object-position: center top;
                 }
 
                 .portada {
-                    position: relative;
-                    inset: auto;
+                    position: absolute;
+                    inset: 0;
                     display: flex;
                     flex-direction: column;
-                    align-items: flex-start;
+                    align-items: center;
                     justify-content: center;
-                    padding: 22px 20px;
-                    background: #024D64;
-                    text-align: left;
+                    padding: 25px 20px 45px;
+                    box-sizing: border-box;
+                    background: linear-gradient(
+                        rgba(0, 0, 0, 0.25),
+                        rgba(0, 0, 0, 0.48)
+                    );
+                    text-align: center;
                 }
 
                 .portada-contenido {
                     width: 100%;
                     max-width: 430px;
+                    margin: 0 auto;
                 }
 
                 .portada h1 {
-                    font-size: 24px;
+                    font-size: 25px;
                     line-height: 1.2;
-                    margin-bottom: 9px;
+                    margin-bottom: 10px;
                 }
 
                 .portada p {
                     font-size: 14px;
                     line-height: 1.45;
+                    margin: 0 auto;
                 }
 
                 .portada-frase {
-                    position: static;
-                    margin-top: 12px;
-                    max-width: 100%;
-                    font-size: 14px;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 14px;
+                    transform: translateX(-50%);
+                    width: 90%;
+                    max-width: 430px;
+                    margin: 0;
+                    font-size: 13px;
                     line-height: 1.4;
+                    text-align: center;
                 }
 
                 header {
