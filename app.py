@@ -647,25 +647,25 @@ def inicio():
             display:flex;
             flex-direction:column;
             justify-content:space-between;
-            padding:5% 7%;
+            padding:clamp(20px, 3.5vw, 48px) clamp(22px, 6vw, 75px);
             box-sizing:border-box;
             background:transparent;
             text-align:left;
         ">
 
-        <div class="portada-contenido" style="margin:0; max-width:900px; text-align:left;">
+        <div class="portada-contenido" style="margin:0; max-width:650px; text-align:left;">
 
-            <h1 style="color:white;">
-                Tu carga, en buenas manos, de origen a destino.
+            <h1 style="color:white; font-size:clamp(25px, 3vw, 38px); line-height:1.15; max-width:620px; margin:0 0 12px 0; text-shadow:0 2px 8px rgba(0,0,0,.4);">
+                Tu carga, en buenas manos,<br>de origen a destino.
             </h1>
 
-            <p style="color:white; margin:0;">
+            <p style="color:white; font-size:clamp(13px, 1.25vw, 17px); line-height:1.5; max-width:520px; margin:0; text-shadow:0 1px 5px rgba(0,0,0,.4);">
                 Seguridad, eficiencia y confianza en cada operación logística.
             </p>
 
         </div>
 
-        <div style="color:white; font-size:clamp(18px, 2.5vw, 30px); font-weight:bold;">
+        <div style="color:white; font-size:clamp(14px, 1.7vw, 21px); font-weight:600; max-width:480px; line-height:1.4; text-shadow:0 2px 7px rgba(0,0,0,.45);">
             Conectamos oportunidades. Coordinamos soluciones.
         </div>
 
