@@ -377,32 +377,45 @@ def inicio():
 
             .contacto {
                 background: #EAF4F8;
+                padding: 75px 6%;
             }
 
             .contacto h2 {
-                margin-bottom: 35px;
+                margin-bottom: 40px;
+            }
+
+            .contacto-distribucion {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                max-width: 1300px;
+                margin: auto;
+                align-items: stretch;
             }
 
             .footer-columnas {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 30px;
-                max-width: 1300px;
-                margin: auto;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: none;
+                margin: 0;
                 text-align: left;
             }
 
             .footer-columna {
-                background: #024D64;
-                color: #FFFFFF;
+                background: #FFFFFF;
+                color: #024D64;
                 padding: 25px;
-                border-radius: 9px;
+                border-radius: 12px;
+                border: 1px solid #D9E6EC;
+                border-left: 5px solid #024D64;
+                box-shadow: 0 6px 20px rgba(2,77,100,0.08);
             }
 
             .footer-columna h3 {
-                color: #FFFFFF;
-                font-size: 21px;
-                margin-bottom: 20px;
+                color: #024D64;
+                font-size: 20px;
+                margin-bottom: 18px;
                 padding-bottom: 12px;
                 border-bottom: 2px solid #A61731;
             }
@@ -411,17 +424,17 @@ def inicio():
                 font-size: 14px;
                 line-height: 1.8;
                 margin-bottom: 13px;
-                color: #EAF4F8;
+                color: #40545D;
             }
 
             .footer-columna a {
-                color: #FFFFFF;
+                color: #024D64;
                 text-decoration: none;
                 overflow-wrap: anywhere;
             }
 
             .footer-columna a:hover {
-                color: #FFB6C1;
+                color: #A61731;
             }
 
             /* FORMULARIO */
@@ -430,20 +443,22 @@ def inicio():
                 display: flex;
                 flex-direction: column;
                 gap: 13px;
-                max-width: 750px;
-                margin: 35px auto 0;
-                padding: 30px;
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                padding: 35px;
                 background: #FFFFFF;
-                border-radius: 10px;
+                border-radius: 12px;
+                border-top: 5px solid #A61731;
                 text-align: left;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                box-shadow: 0 6px 25px rgba(2,77,100,0.10);
             }
 
             .contacto-formulario h3 {
                 color: #024D64;
-                font-size: 23px;
-                margin-bottom: 10px;
-                text-align: center;
+                font-size: 24px;
+                margin-bottom: 15px;
+                text-align: left;
             }
 
             .contacto-formulario label {
@@ -455,21 +470,24 @@ def inicio():
             .contacto-formulario input,
             .contacto-formulario textarea {
                 width: 100%;
-                padding: 13px;
+                padding: 14px;
                 border: 1px solid #D5E1E5;
-                border-radius: 5px;
+                border-radius: 7px;
                 font-family: Arial, sans-serif;
                 font-size: 14px;
                 outline: none;
+                box-sizing: border-box;
+                transition: border-color 0.2s, box-shadow 0.2s;
             }
 
             .contacto-formulario input:focus,
             .contacto-formulario textarea:focus {
-                border-color: #A61731;
+                border-color: #024D64;
+                box-shadow: 0 0 0 3px rgba(2,77,100,0.10);
             }
 
             .contacto-formulario textarea {
-                min-height: 110px;
+                min-height: 130px;
                 resize: vertical;
             }
 
@@ -477,18 +495,19 @@ def inicio():
                 background: #A61731;
                 color: #FFFFFF;
                 border: none;
-                padding: 15px;
-                border-radius: 5px;
+                padding: 16px;
+                border-radius: 7px;
                 font-size: 15px;
                 font-weight: bold;
                 cursor: pointer;
+                transition: background 0.2s;
             }
 
             .contacto-formulario button:hover {
-                background: #C52B45;
+                background: #024D64;
             }
 
-                        /* MENSAJES */
+            /* MENSAJES */
 
             .mensaje {
                 background: #FFFFFF;
@@ -511,13 +530,13 @@ def inicio():
             }
 
             .redes a {
-                color: #FFFFFF;
+                color: #024D64;
                 text-decoration: none;
                 font-weight: bold;
             }
 
             .redes a:hover {
-                color: #87A4BA;
+                color: #A61731;
             }
 
             /* MAPA */
@@ -694,6 +713,11 @@ def inicio():
                 .servicio:nth-child(4),
                 .servicio:nth-child(5) {
                     grid-column: auto;
+                }
+
+                .contacto-distribucion {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
                 }
 
                 .footer-columnas {
@@ -944,7 +968,9 @@ def inicio():
 
                 <h2>CONTÁCTANOS</h2>
 
-                <div class="footer-columnas">
+                <div class="contacto-distribucion">
+
+                    <div class="footer-columnas">
 
                     <div class="footer-columna">
 
@@ -1023,9 +1049,9 @@ def inicio():
 
                     </div>
 
-                </div>
+                    </div>
 
-                <!-- FORMULARIO -->
+                    <!-- FORMULARIO -->
 
                 <form class="contacto-formulario"
                       action="/enviar-mensaje"
@@ -1052,7 +1078,9 @@ def inicio():
 
                     <button type="submit">Enviar mensaje</button>
 
-                </form>
+                    </form>
+
+                </div>
 
             </section>
 
