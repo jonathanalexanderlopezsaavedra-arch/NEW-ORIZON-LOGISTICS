@@ -1010,10 +1010,10 @@ def inicio():
 
                         <div class="redes">
 
-                            <a href="https://www.facebook.com/search/top?q=New%20Orizon%20Logistics"
+                            <a href="https://www.facebook.com/share/1Kx5EYa8iC/"
                                target="_blank">Facebook</a>
 
-                            <a href="https://www.instagram.com/"
+                            <a href="https://www.instagram.com/neworizonlogistics/"
                                target="_blank">Instagram</a>
 
                             <a href="https://www.tiktok.com/search?q=New%20Orizon%20Logistics"
