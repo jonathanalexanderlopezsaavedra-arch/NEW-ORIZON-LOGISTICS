@@ -136,7 +136,7 @@ def inicio():
 
             @media (min-width: 769px) {
                 .portada-fondo {
-                    max-height: 47vw;
+                    max-height: 48vw;
                 }
             }
 
