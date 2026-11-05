@@ -140,7 +140,7 @@ def inicio():
                 }
 
                 .portada-imagen {
-                    transform: scale(1.02);
+                    transform: scale(1.04);
                     transform-origin: center bottom;
                 }
             }
