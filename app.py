@@ -53,7 +53,8 @@ def inicio():
           },
           "sameAs": [
             "https://www.facebook.com/share/1Kx5EYa8iC/",
-            "https://www.instagram.com/neworizonlogistics/"
+            "https://www.instagram.com/neworizonlogistics/",
+            "https://www.tiktok.com/@neworizonlogistics?_r=1&_t=ZS-9BATiGcdR8G"
           ]
         }
         </script>
@@ -1074,7 +1075,7 @@ def inicio():
                             <a href="https://www.instagram.com/neworizonlogistics/"
                                target="_blank">Instagram</a>
 
-                            <a href="https://www.tiktok.com/search?q=New%20Orizon%20Logistics"
+                            <a href="https://www.tiktok.com/@neworizonlogistics?_r=1&_t=ZS-9BATiGcdR8G"
                                target="_blank">TikTok</a>
 
                         </div>
