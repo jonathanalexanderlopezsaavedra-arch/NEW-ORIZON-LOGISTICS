@@ -11,7 +11,11 @@ app.secret_key = os.environ.get("SECRET_KEY", "clave-temporal-desarrollo")
 BASE_DIR = Path(__file__).resolve().parent
 CARPETA_IMAGES = BASE_DIR / "static" / "images"
 CARPETA_IMAGES.mkdir(parents=True, exist_ok=True)
-
+@app.before_request
+def redirigir_render_a_web_oficial():
+    if request.host.split(":")[0].lower() == "new-orizon-logistics.onrender.com":
+        destino = "https://www.neworizonlogistics.com" + request.full_path
+        return redirect(destino, code=301)
 
 @app.route("/")
 def inicio():
