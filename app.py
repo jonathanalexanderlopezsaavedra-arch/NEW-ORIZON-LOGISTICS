@@ -1079,6 +1079,7 @@ def inicio():
 
                         <iframe
                             class="mapa"
+                            title="Ubicación de NEW ORIZON LOGISTICS"
                             src="https://www.google.com/maps?q=Mz.%20H%20Lt.%2017%20Asociaci%C3%B3n%20Montecarlo%20San%20Mart%C3%ADn%20de%20Porres%20Lima&output=embed"
                             loading="lazy"
                             allowfullscreen>
