@@ -819,7 +819,7 @@ def inicio():
                 <img
                     src="{{ url_for('static', filename='images/NEW_ORIZON_logo_recortado_fondo_negro.png') }}"
                     alt="NEW ORIZON LOGISTICS S.A.C."
-                    class="logo-imagen"
+                    class="logo-imagen" width="1173" height="749"
                 >
             </a>
 
@@ -840,6 +840,7 @@ def inicio():
 
     <img
         class="portada-imagen"
+        width="1600" height="900"
         src="{{ url_for('static', filename='images/portada.jpeg') }}"
         alt="NEW ORIZON LOGISTICS"
     >
