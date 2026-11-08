@@ -615,7 +615,12 @@ def inicio():
                 font-weight: bold;
             }
 
+            .footer-columna a.boton-mapa {
+                color: #FFFFFF;
+            }
+
             .boton-mapa:hover {
+                color: #FFFFFF;
                 background: #C52B45;
             }
 
