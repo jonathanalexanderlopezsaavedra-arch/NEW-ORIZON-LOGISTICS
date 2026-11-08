@@ -60,6 +60,7 @@ def inicio():
           "name": "NEW ORIZON LOGISTICS S.A.C.",
           "url": "https://www.neworizonlogistics.com/",
           "logo": "https://www.neworizonlogistics.com/static/images/NEW_ORIZON_logo_recortado_fondo_negro.png",
+          "image": "https://www.neworizonlogistics.com/static/images/portada.jpeg",
           "description": "Servicios de logística internacional, carga marítima y aérea, agenciamiento de aduanas, seguro internacional de carga y transporte terrestre en Perú.",
           "email": "operaciones@neworizonlogistics.com",
           "telephone": "+51907225733",
