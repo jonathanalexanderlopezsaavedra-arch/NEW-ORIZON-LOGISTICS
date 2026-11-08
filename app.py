@@ -848,6 +848,8 @@ def inicio():
         fetchpriority="high"
         width="1600" height="900"
         src="{{ url_for('static', filename='images/portada.webp') }}"
+        srcset="{{ url_for('static', filename='images/portada-720.webp') }} 720w, {{ url_for('static', filename='images/portada.webp') }} 1600w"
+        sizes="100vw"
         alt="NEW ORIZON LOGISTICS"
     >
 
