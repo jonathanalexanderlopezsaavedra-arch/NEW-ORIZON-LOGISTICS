@@ -25,7 +25,7 @@ def inicio():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preload" as="image" href="{{ url_for('static', filename='images/portada.jpeg') }}" fetchpriority="high">
+        <link rel="preload" as="image" href="{{ url_for('static', filename='images/portada.webp') }}" fetchpriority="high">
         <!-- Google Analytics 4 -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLE9ZY38WE"></script>
         <script>
@@ -47,12 +47,12 @@ def inicio():
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://www.neworizonlogistics.com/">
         <meta property="og:locale" content="es_PE">
-        <meta property="og:image" content="https://www.neworizonlogistics.com/static/images/portada.jpeg">
+        <meta property="og:image" content="https://www.neworizonlogistics.com/static/images/portada.webp">
         <meta property="og:image:alt" content="NEW ORIZON LOGISTICS - Logística internacional">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="NEW ORIZON LOGISTICS S.A.C.">
         <meta name="twitter:description" content="Soluciones de logística internacional, carga marítima y aérea, aduanas y transporte terrestre en Perú.">
-        <meta name="twitter:image" content="https://www.neworizonlogistics.com/static/images/portada.jpeg">
+        <meta name="twitter:image" content="https://www.neworizonlogistics.com/static/images/portada.webp">
 
         <script type="application/ld+json">
         {
@@ -60,8 +60,8 @@ def inicio():
           "@type": "Organization",
           "name": "NEW ORIZON LOGISTICS S.A.C.",
           "url": "https://www.neworizonlogistics.com/",
-          "logo": "https://www.neworizonlogistics.com/static/images/NEW_ORIZON_logo_recortado_fondo_negro.png",
-          "image": "https://www.neworizonlogistics.com/static/images/portada.jpeg",
+          "logo": "https://www.neworizonlogistics.com/static/images/logo_optimizado.webp",
+          "image": "https://www.neworizonlogistics.com/static/images/portada.webp",
           "description": "Servicios de logística internacional, carga marítima y aérea, agenciamiento de aduanas, seguro internacional de carga y transporte terrestre en Perú.",
           "email": "operaciones@neworizonlogistics.com",
           "telephone": "+51907225733",
@@ -817,7 +817,7 @@ def inicio():
         <header>
             <a href="#inicio">
                 <img
-                    src="{{ url_for('static', filename='images/NEW_ORIZON_logo_recortado_fondo_negro.png') }}"
+                    src="{{ url_for('static', filename='images/logo_optimizado.webp') }}"
                     alt="NEW ORIZON LOGISTICS S.A.C."
                     class="logo-imagen" width="1173" height="749"
                 >
@@ -841,7 +841,7 @@ def inicio():
     <img
         class="portada-imagen"
         width="1600" height="900"
-        src="{{ url_for('static', filename='images/portada.jpeg') }}"
+        src="{{ url_for('static', filename='images/portada.webp') }}"
         alt="NEW ORIZON LOGISTICS"
     >
 
@@ -925,7 +925,7 @@ def inicio():
                 <div class="servicios-grid">
 
                     <div class="servicio">
-                        <img src="{{ url_for('static', filename='images/maritimo.jpeg') }}"
+                        <img src="{{ url_for('static', filename='images/maritimo.webp') }}"
                              alt="Flete Internacional Marítimo" width="1250" height="850">
 
                         <h3>Flete Internacional Marítimo – LCL / FCL</h3>
@@ -938,7 +938,7 @@ def inicio():
                     </div>
 
                     <div class="servicio">
-                        <img src="{{ url_for('static', filename='images/aereo.jpeg') }}"
+                        <img src="{{ url_for('static', filename='images/aereo.webp') }}"
                              alt="Flete Internacional Aéreo" width="1199" height="672">
 
                         <h3>Flete Internacional Aéreo</h3>
@@ -951,7 +951,7 @@ def inicio():
                     </div>
 
                     <div class="servicio">
-                        <img src="{{ url_for('static', filename='images/aduanas.jpeg') }}"
+                        <img src="{{ url_for('static', filename='images/aduanas.webp') }}"
                              alt="Agenciamiento de Aduanas" width="1619" height="971">
 
                         <h3>Agenciamiento de Aduanas</h3>
@@ -965,7 +965,7 @@ def inicio():
                     </div>
 
                     <div class="servicio">
-                        <img src="{{ url_for('static', filename='images/seguro.jpeg') }}"
+                        <img src="{{ url_for('static', filename='images/seguro.webp') }}"
                              alt="Seguro Internacional de Carga" width="1254" height="1254">
 
                         <h3>Seguro Internacional de Carga</h3>
@@ -978,7 +978,7 @@ def inicio():
                     </div>
 
                     <div class="servicio">
-                        <img src="{{ url_for('static', filename='images/terrestre.jpeg') }}"
+                        <img src="{{ url_for('static', filename='images/terrestre.webp') }}"
                              alt="Transporte Terrestre" width="735" height="412">
 
                         <h3>Transporte Terrestre</h3>
