@@ -46,6 +46,12 @@ def inicio():
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://www.neworizonlogistics.com/">
         <meta property="og:locale" content="es_PE">
+        <meta property="og:image" content="https://www.neworizonlogistics.com/static/images/portada.jpeg">
+        <meta property="og:image:alt" content="NEW ORIZON LOGISTICS - Logística internacional">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="NEW ORIZON LOGISTICS S.A.C.">
+        <meta name="twitter:description" content="Soluciones de logística internacional, carga marítima y aérea, aduanas y transporte terrestre en Perú.">
+        <meta name="twitter:image" content="https://www.neworizonlogistics.com/static/images/portada.jpeg">
 
         <script type="application/ld+json">
         {
@@ -73,7 +79,7 @@ def inicio():
 
 
  
-\        <style>
+        <style>
            * {
                 margin: 0;
                 padding: 0;
