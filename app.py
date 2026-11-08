@@ -25,6 +25,7 @@ def inicio():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preload" as="image" href="{{ url_for('static', filename='images/portada.jpeg') }}" fetchpriority="high">
         <!-- Google Analytics 4 -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLE9ZY38WE"></script>
         <script>
