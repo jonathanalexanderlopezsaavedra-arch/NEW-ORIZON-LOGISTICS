@@ -845,6 +845,7 @@ def inicio():
 
     <img
         class="portada-imagen"
+        fetchpriority="high"
         width="1600" height="900"
         src="{{ url_for('static', filename='images/portada.webp') }}"
         alt="NEW ORIZON LOGISTICS"
