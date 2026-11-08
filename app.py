@@ -925,7 +925,7 @@ def inicio():
 
                     <div class="servicio">
                         <img src="{{ url_for('static', filename='images/maritimo.jpeg') }}"
-                             alt="Flete Internacional Marítimo">
+                             alt="Flete Internacional Marítimo" width="1250" height="850">
 
                         <h3>Flete Internacional Marítimo – LCL / FCL</h3>
 
@@ -938,7 +938,7 @@ def inicio():
 
                     <div class="servicio">
                         <img src="{{ url_for('static', filename='images/aereo.jpeg') }}"
-                             alt="Flete Internacional Aéreo">
+                             alt="Flete Internacional Aéreo" width="1199" height="672">
 
                         <h3>Flete Internacional Aéreo</h3>
 
@@ -951,7 +951,7 @@ def inicio():
 
                     <div class="servicio">
                         <img src="{{ url_for('static', filename='images/aduanas.jpeg') }}"
-                             alt="Agenciamiento de Aduanas">
+                             alt="Agenciamiento de Aduanas" width="1619" height="971">
 
                         <h3>Agenciamiento de Aduanas</h3>
 
@@ -965,7 +965,7 @@ def inicio():
 
                     <div class="servicio">
                         <img src="{{ url_for('static', filename='images/seguro.jpeg') }}"
-                             alt="Seguro Internacional de Carga">
+                             alt="Seguro Internacional de Carga" width="1254" height="1254">
 
                         <h3>Seguro Internacional de Carga</h3>
 
@@ -978,7 +978,7 @@ def inicio():
 
                     <div class="servicio">
                         <img src="{{ url_for('static', filename='images/terrestre.jpeg') }}"
-                             alt="Transporte Terrestre">
+                             alt="Transporte Terrestre" width="735" height="412">
 
                         <h3>Transporte Terrestre</h3>
 
