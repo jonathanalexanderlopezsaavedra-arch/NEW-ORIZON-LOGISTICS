@@ -67,6 +67,7 @@ def inicio():
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Mz. H Lt. 17, Asociación Montecarlo",
+            "postalCode": "15108",
             "addressLocality": "San Martín de Porres",
             "addressRegion": "Lima",
             "addressCountry": "PE"
